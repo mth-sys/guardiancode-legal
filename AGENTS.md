@@ -27,6 +27,15 @@ This repository is a public-facing trust boundary. README.md and the current pub
 - Use targeted checks first; do not add unnecessary dependencies or CI.
 - Use external research only when required and prefer authoritative primary sources.
 
+## Model and reasoning escalation
+- Default to the user's currently selected model and reasoning effort; do not assume a model/effort change occurred unless the user actually changes it.
+- When a different reasoning effort, model, or both would materially improve correctness, security, architectural judgment, debugging depth, or verification quality, tell the user explicitly before relying on that escalation.
+- When available model/effort controls are known from authoritative product context, recommend the exact target and give a concise reason tied to the task. When availability is not known, do not invent product capabilities; ask the user to confirm the options shown in their UI before depending on a specific target.
+- Prefer escalating reasoning effort before escalating to a more expensive model when that is sufficient.
+- Recommend reducing effort for routine/status work when higher effort would add cost without meaningful benefit.
+- Reserve premium/Pro models, Max/Ultra effort, and multi-agent execution for cases where the expected benefit justifies the additional resource use.
+- If the current model/effort is insufficient and the user has not switched, continue only within the current capability, state the limitation clearly, and do not claim that a stronger model/effort was used.
+
 ## Execution authority
 - Do not publish/deploy, change DNS/domain settings, modify external legal registrations, alter permissions, or perform destructive actions unless explicitly authorized.
 - Distinguish drafted, reviewed, legally reviewed, committed, pushed, merged, published, and verified states.
